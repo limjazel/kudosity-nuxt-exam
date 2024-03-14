@@ -1,37 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useNavigation } from "@/composables/use-navigation.js"
 
-const links = [
-	{
-		name: 'Home',
-		url: '/',
-	},
-	{
-		name: 'Products',
-		url: '/products',
-	},
-	{
-		name: 'Customers',
-		url: '/customers',
-	},
-	{
-		name: 'Developers',
-		url: '/developers',
-	},
-	{
-		name: 'Partners',
-		url: '/partners',
-	},
-	{
-		name: 'Resources',
-		url: '/resources',
-	},
-	{
-		name: 'About Us',
-		url: '/about-us',
-	},
-]
-
+const { links } = useNavigation()
 let mobileMenuIsToggled = ref(false)
 
 function handleToggleMenu() {
@@ -59,7 +30,7 @@ function handleToggleMenu() {
 	</nav>
 
 	<!-- Menu for mobile devices -->
-	<TheMobileMenu :links="links" :isToggled="mobileMenuIsToggled" />
+	<TheMobileMenu :isToggled="mobileMenuIsToggled" />
 </template>
 
 <style lang="postcss"></style>

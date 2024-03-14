@@ -1,6 +1,9 @@
 <script setup>
 import { watch, ref } from 'vue'
-defineProps(['links', 'isToggled'])
+import { useNavigation } from "@/composables/use-navigation.js"
+
+const { links } = useNavigation()
+defineProps(['isToggled'])
 
 </script>
 
