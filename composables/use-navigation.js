@@ -3,6 +3,7 @@ export const useNavigation = () => {
 		{
 			name: "Home",
 			url: "/",
+			show_logo: true,
 		},
 		{
 			name: "Products",

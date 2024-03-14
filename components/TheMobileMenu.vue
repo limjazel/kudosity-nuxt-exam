@@ -8,9 +8,13 @@ const { mobileMenuIsToggled, handleToggleMobileMenu } = toRefs(useMobileNavigati
 </script>
 
 <template>
-  <div v-if="mobileMenuIsToggled" class="[ flex flex-col gap-2 lg:hidden ]">
-    <div v-for="link of links">
-      <NuxtLink :to="link.url">{{ link.name }}</NuxtLink>
+  <div v-if="mobileMenuIsToggled" class="[ fixed inset-0 top-16 -z-0 lg:hidden ]">
+    <div class="[ absolute inset-0 ] [ bg-stroke ]">
+      <nav class="[ px-6 py-4 ] [ flex flex-col gap-6 ]">
+        <div v-for="link of links" class="[ text-white ]">
+          <NuxtLink :to="link.url" @click="handleToggleMobileMenu">{{ link.name }}</NuxtLink>
+        </div>
+      </nav>
     </div>
   </div>
 </template>
