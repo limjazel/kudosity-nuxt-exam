@@ -1,19 +1,16 @@
 <script setup>
-import { ref } from 'vue'
-import { useNavigation } from "@/composables/use-navigation.js"
+import { toRefs } from 'vue'
+import { useNavigation } from "@/composables/use-navigation"
+import { useMobileNavigation } from "@/stores/use-mobile-navigation"
 
 const { links } = useNavigation()
-let mobileMenuIsToggled = ref(false)
-
-function handleToggleMenu() {
-	mobileMenuIsToggled.value = !mobileMenuIsToggled.value
-}
+const { mobileMenuIsToggled, handleToggleMobileMenu } = toRefs(useMobileNavigation())
 </script>
 
 <template>
 	<nav>
 		<div class="[ flex lg:hidden ]">
-			<button type="button" @click.prevent="handleToggleMenu">
+			<button type="button" @click="handleToggleMobileMenu">
 				<span class="[ sr-only ]">Open mobile menu</span>
 				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
 					aria-hidden="true">
@@ -28,9 +25,6 @@ function handleToggleMenu() {
 			</div>
 		</div>
 	</nav>
-
-	<!-- Menu for mobile devices -->
-	<TheMobileMenu :isToggled="mobileMenuIsToggled" />
 </template>
 
 <style lang="postcss"></style>
