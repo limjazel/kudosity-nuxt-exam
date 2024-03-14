@@ -28,6 +28,10 @@ export const useNavigation = () => {
 			name: "About Us",
 			url: "/about-us",
 		},
+		{
+			name: "Sign-in",
+			url: "/app/sign-in",
+		},
 	]
 
 	return { links }
