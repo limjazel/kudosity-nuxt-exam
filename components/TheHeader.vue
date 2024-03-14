@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const links = [
 	{
 		name: 'Home',
@@ -29,14 +31,35 @@ const links = [
 		url: '/about-us',
 	},
 ]
+
+let mobileMenuIsToggled = ref(false)
+
+function handleToggleMenu() {
+	mobileMenuIsToggled.value = !mobileMenuIsToggled.value
+}
 </script>
 
 <template>
-	<nav class="[ flex gap-2 ]">
-		<div v-for="link of links">
-			<NuxtLink :to="link.url">{{ link.name }}</NuxtLink>
+	<nav>
+		<div class="[ flex lg:hidden ]">
+			<button type="button" @click.prevent="handleToggleMenu">
+				<span class="[ sr-only ]">Open mobile menu</span>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+					aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="[ hidden lg:flex gap-2 ]">
+			<div v-for="link of links">
+				<NuxtLink :to="link.url">{{ link.name }}</NuxtLink>
+			</div>
 		</div>
 	</nav>
+
+	<!-- Menu for mobile devices -->
+	<TheMobileMenu :links="links" :isToggled="mobileMenuIsToggled" />
 </template>
 
 <style lang="postcss"></style>
