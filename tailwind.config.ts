@@ -4,7 +4,8 @@ const config: ModuleOptions["config"] = {
 	theme: {
 		extend: {
 			colors: {
-				accent: "rgb(var(--color-primary) / <alpha-value>)",
+				primary: "rgb(var(--color-primary) / <alpha-value>)",
+				accent: "rgb(var(--color-accent) / <alpha-value>)",
 				stroke: "rgb(var(--color-stroke) / <alpha-value>)",
 			},
 		},
