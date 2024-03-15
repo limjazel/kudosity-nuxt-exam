@@ -1,44 +1,111 @@
 <script setup>
-const faqs = [
-  {
-    question: "How can you reach more customers anywhere?",
-    bg_color: ""
-  },
-  {
-    question: "How can you boost your engagement?",
-    bg_color: "bg-accent"
-  },
-  {
-    question: "How can you add SMS to your existing apps and platforms?",
-    bg_color: "bg-primary"
-  },
-]
+	import { ref, reactive } from "vue"
+
+	const faqs = [
+		{
+			question: "How can you reach more customers anywhere?",
+			bg_color: "",
+		},
+		{
+			question: "How can you boost your engagement?",
+			bg_color: "bg-accent",
+		},
+		{
+			question: "How can you add SMS to your existing apps and platforms?",
+			bg_color: "bg-primary",
+		},
+	]
+
+	const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+	let email = ref("")
+	let isProcessing = ref(false)
+
+	function handleSubmitEmailAddress() {
+		isProcessing.value = true
+		if (emailRegex.test(email.value)) {
+			alert(
+				`Your request has been sent. A representative will reach out to you via ${email.value} in 2-3 days.`,
+			)
+
+			isProcessing.value = false
+		}
+	}
 </script>
 
 <template>
-  <section class="faqs [ mx-auto px-10 md:px-2 ] [ container text-white ]">
-    <div class="[ flex flex-wrap gap-8 ]">
-      <div class="[ px-8 ] [ flex flex-col w-full lg:w-[30%] ]">
-        <h2 class="[ text-center lg:text-left ]">When we ask questions, we grow…</h2>
+	<section class="faqs-section">
+		<div class="[ flex flex-wrap gap-8 ]">
+			<div class="[ px-2 md:px-8 ] [ flex flex-col w-full lg:w-[30%] ]">
+				<h2 class="[ text-center lg:text-left ]">
+					When we ask questions, we grow…
+				</h2>
 
-        <div class="[ pt-6 ] [ grid gap-3 ]">
-          <p class="[ text-center lg:text-left ]">Request a free demo to see for yourself</p>
-          <Input type="text" name="faqs-contact-input" look="custom" placeholder="What's your business email?" />
-        </div>
-      </div>
+				<div class="[ pt-8 ] [ grid gap-3 ]">
+					<p class="[ text-center lg:text-left text-neutral-400 ]">
+						Request a free demo to see for yourself
+					</p>
 
-      <div class="[ mt-8 lg:mt-0 px-4 lg:px-0 ] [ flex w-full lg:w-[65%] ] ">
-        <div class="[ grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 ]">
-          <span v-for="faq of faqs" class="[ grid ]">
-            <span class="[ flex flex-col items-center justify-end ]" :class="faq.bg_color || 'bg-accent'">
-              <p class="[ p-5 ] [ text-lg font-medium ]">{{ faq.question }}</p>
-            </span>
-          </span>
-        </div>
-      </div>
+					<form
+						action=""
+						@submit="handleSubmitEmailAddress">
+						<div class="[ mt-1 ] [ relative -left-2 ] [ flex items-center ]">
+							<Input
+								v-model="email"
+								type="text"
+								name="faqs-contact-input"
+								look="custom"
+								placeholder="What's your business email?"
+								class="faqs-custom-input" />
 
-    </div>
-  </section>
+							<Button
+								type="submit"
+								look="custom"
+								:disabled="!emailRegex.test(email)"
+								class="[ py-4 ] [ bg-accent rounded-full ] [ absolute right-0 ]">
+								<span class="[ sr-only ]">Send</span>
+								<span>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+									</svg>
+								</span>
+							</Button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="[ mt-8 lg:mt-0 px-4 lg:px-0 ] [ flex w-full lg:w-[65%] ]">
+				<div class="[ grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 ]">
+					<span
+						v-for="faq of faqs"
+						class="[ grid ]">
+						<span
+							class="[ flex flex-col items-center justify-end ]"
+							:class="faq.bg_color || 'bg-accent'">
+							<p class="[ p-5 ] [ text-lg font-medium ]">{{ faq.question }}</p>
+						</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
 
-<style lang="postcss"></style>
+<style lang="postcss">
+	.faqs-section {
+		@apply mx-auto px-10 md:px-2 container text-white;
+	}
+
+	.faqs-custom-input {
+		@apply py-4 px-5 bg-stroke border rounded-full placeholder:text-sm;
+	}
+</style>
