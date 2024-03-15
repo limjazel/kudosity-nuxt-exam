@@ -53,7 +53,7 @@ defineExpose({ focus });
 
 <template>
   <Component ref="$root" :is="props.as" :aria-disabled="props.disabled" :disabled="props.disabled"
-    class="button [ cursor-default inline-flex flex-wrap items-center transition duration-100 ]"
+    class="button [ cursor-pointer inline-flex flex-wrap items-center transition duration-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-stroke outline-none ]"
     :class="[[LookOptions[props.look]], [SizeOptions[props.size]], [props.class]]">
     <slot />
   </Component>

@@ -2,7 +2,7 @@
 
 <template>
 	<section>I am the banner</section>
-	<PrimitivesButton look="primary">I am a button</PrimitivesButton>
+	<Button look="primary" as="a" href="/">Book a demo</Button>
 </template>
 
 <style lang="postcss"></style>
