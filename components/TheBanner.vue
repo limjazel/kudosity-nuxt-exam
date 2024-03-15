@@ -12,7 +12,7 @@ const people = ["Eliza Thompson", "Logan Smith", "Jenny Kim", "Shane Curtis"]
 		<div class="[ relative ] [ flex flex-col lg:flex-row items-center ]">
 			<div
 				class="[ lg:-ml-20 lg:mr-60 ] [ relative -bottom-32 md:-bottom-48 lg:-bottom-12 ] [ max-w-full md:max-w-xl lg:max-w-5xl ]">
-				<img src="/images/phone-app.jpeg" alt="" class="[ mix-blend-screen opacity-80 ] [ w-full h-auto ]">
+				<img src="/images/phone-app.jpeg" alt="" class="[ mix-blend-screen opacity-80 ] [ w-full h-auto ]" />
 			</div>
 
 			<div class="decorative-group [ absolute top-[5%] md:top-6 lg:top-[20%] lg:right-0 ]">
