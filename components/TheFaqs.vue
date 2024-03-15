@@ -1,5 +1,4 @@
 <script setup>
-
 const faqs = [
   {
     question: "How can you reach more customers anywhere?",
@@ -24,7 +23,7 @@ const faqs = [
 
         <div class="[ pt-6 ] [ grid gap-3 ]">
           <p class="[ text-center lg:text-left ]">Request a free demo to see for yourself</p>
-          <input type="text" placeholder="What's your business email?">
+          <Input type="text" name="faqs-contact-input" look="custom" placeholder="What's your business email?" />
         </div>
       </div>
 
