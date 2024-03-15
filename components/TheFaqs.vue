@@ -83,17 +83,24 @@
 				</div>
 			</div>
 
-			<div class="[ mt-8 lg:mt-0 px-4 lg:px-0 ] [ flex w-full lg:w-[65%] ]">
-				<div class="[ grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 ]">
-					<span
+			<div class="[ px-4 mt-8 lg:mt-0 lg:px-0 ] [ flex w-full lg:w-[65%] ]">
+				<div class="[ grid md:grid-cols-3 gap-10 md:gap-8 content-end ]">
+					<div
 						v-for="faq of faqs"
-						class="[ grid ]">
+						class="[ grid ] [ relative ] [ min-h-40 lg:min-h-48 ]">
 						<span
-							class="[ flex flex-col items-center justify-end ]"
+							class="folder-div [ flex flex-col items-center justify-end ] [ rounded-lg ]"
 							:class="faq.bg_color || 'bg-accent'">
-							<p class="[ p-5 ] [ text-lg font-medium ]">{{ faq.question }}</p>
+							<p class="[ py-5 px-6 ] [ text-lg lg:text-2xl font-medium ]">
+								{{ faq.question }}
+							</p>
 						</span>
-					</span>
+
+						<span class="[ absolute -top-4 -right-[0.5px] ] [ max-w-[8rem] ]">
+							<FolderEarIcon
+								:class="faq.bg_color.replace('bg', 'text') || 'text-accent'" />
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
