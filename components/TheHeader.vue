@@ -8,7 +8,7 @@ const { mobileMenuIsToggled, handleToggleMobileMenu } = toRefs(useMobileNavigati
 </script>
 
 <template>
-	<div class="[ bg-black ]">
+	<header class="[ bg-black ]">
 		<nav class="[ max-w-screen-2xl mx-auto ] [ py-5 md:py-6 px-5 ]">
 			<div class="[ flex justify-between lg:hidden ]">
 				<NuxtLink to="/" @click="handleToggleMobileMenu">
@@ -39,7 +39,7 @@ const { mobileMenuIsToggled, handleToggleMobileMenu } = toRefs(useMobileNavigati
 				</div>
 			</div>
 		</nav>
-	</div>
+	</header>
 </template>
 
 <style>

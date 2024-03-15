@@ -47,18 +47,14 @@ const logos = [
 
 <template>
   <section class="vendors [ py-12 px-10 ]">
-    <p class="[ text-neutral-300 text-center ]">Trusted by multiple companies</p>
+    <p class="[ text-neutral-400 text-center ]">Trusted by multiple companies</p>
 
     <div class="[ mt-8 ] [ flex flex-wrap justify-center gap-x-10 gap-y-8 ]">
       <Component v-for="logo in logos" :is="logo.component"
-        class="[ h-8 lg:h-10 w-auto fill-current text-neutral-300 ]">
+        class="[ h-8 lg:h-10 w-auto fill-current text-neutral-400 ]">
       </Component>
     </div>
   </section>
 </template>
 
-<style lang="postcss">
-.vendors {
-  @apply bg-stroke
-}
-</style>
+<style lang="postcss"></style>

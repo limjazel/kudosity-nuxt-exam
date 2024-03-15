@@ -11,11 +11,11 @@ const people = ["Eliza Thompson", "Logan Smith", "Jenny Kim", "Shane Curtis"]
 	<section class="banner [ px-6 md:px-12 pb-12 md:pb-16 ] [ flex flex-col items-center  ]">
 		<div class="[ relative ] [ flex flex-col lg:flex-row items-center ]">
 			<div
-				class="[ lg:-ml-20 lg:mr-60 ] [ relative -bottom-32 md:-bottom-36 lg:-bottom-12 ] [ max-w-full md:max-w-xl lg:max-w-5xl ]">
+				class="[ lg:-ml-20 lg:mr-60 ] [ relative -bottom-32 md:-bottom-48 lg:-bottom-12 ] [ max-w-full md:max-w-xl lg:max-w-5xl ]">
 				<img src="/images/phone-app.jpeg" alt="" class="[ mix-blend-screen opacity-80 ] [ w-full h-auto ]">
 			</div>
 
-			<div class="decorative-group [ absolute top-[5%] md:top-0 lg:top-[20%] lg:right-0 ]">
+			<div class="decorative-group [ absolute top-[5%] md:top-6 lg:top-[20%] lg:right-0 ]">
 				<div class="contacts-decorative [ mt-12 md:mt-16 lg:mt-28 ] [ text-white text-[0.5rem] lg:text-xs ]">
 					<span>Contacts</span>
 					<ul class="[ mt-2 ]">
@@ -48,7 +48,7 @@ const people = ["Eliza Thompson", "Logan Smith", "Jenny Kim", "Shane Curtis"]
 .banner {
 	background: linear-gradient(168.45deg, #000000 48.09%, #6F2BDA 99.57%, #9553FB 101.94%);
 	background-blend-mode: overlay;
-	@apply min-h-[80vh];
+	@apply min-h-[80vh] md:min-h-[65vh];
 }
 
 .decorative-group {

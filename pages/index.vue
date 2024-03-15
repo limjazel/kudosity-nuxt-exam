@@ -3,7 +3,11 @@
 <template>
 	<main>
 		<TheBanner />
-		<TheVendors />
+
+		<div class="[ py-12 ] [ bg-stroke ]">
+			<TheVendors />
+			<TheFaqs class="[ mt-12 ]" />
+		</div>
 	</main>
 </template>
 
