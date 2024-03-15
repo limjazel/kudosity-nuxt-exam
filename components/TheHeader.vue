@@ -8,10 +8,10 @@ const { mobileMenuIsToggled, handleToggleMobileMenu } = toRefs(useMobileNavigati
 </script>
 
 <template>
-	<div class="bg-stroke">
+	<div class="[ bg-black ]">
 		<nav class="[ max-w-screen-2xl mx-auto ] [ py-5 md:py-6 px-5 ]">
 			<div class="[ flex justify-between lg:hidden ]">
-				<NuxtLink to="/">
+				<NuxtLink to="/" @click="handleToggleMobileMenu">
 					<span class="[ sr-only ]">Home</span>
 					<TheLogo class="[ h-7 w-auto ]" />
 				</NuxtLink>

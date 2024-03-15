@@ -28,7 +28,7 @@ const props = defineProps({
   },
   size: {
     type: String,
-    default: 'medium',
+    default: 'large',
   },
   disabled: {
     type: Boolean,

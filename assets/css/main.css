@@ -3,3 +3,7 @@
 	--color-accent: 74 227 206;
 	--color-stroke: 18 18 23;
 }
+
+h1 {
+	@apply text-3xl md:text-4xl lg:text-5xl font-semibold;
+}
