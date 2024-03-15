@@ -7,7 +7,8 @@ const homepage = {
 	charset: 'utf-8',
 	viewport: 'width=device-width,initial-scale=1.0',
 	ogTitle: 'Kudosity — Grow customer relationships with messaging experiences',
-	ogDescription: "Scale conversations with Kudosity's 20+ years of messaging innovation. Explore global connectivity, SaaS platforms, and AI- driven conversational automation.",
+	ogDescription:
+		"Scale conversations with Kudosity's 20+ years of messaging innovation. Explore global connectivity, SaaS platforms, and AI- driven conversational automation.",
 }
 
 useHead({

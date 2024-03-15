@@ -1,19 +1,18 @@
 <script setup>
 import { ref } from 'vue'
 
-
 const LookOptions = {
-  primary: "button--primary [ bg-accent hover:bg-accent/80 focus:bg-accent/80 ]",
+  primary: 'button--primary [ bg-accent hover:bg-accent/80 focus:bg-accent/80 ]',
 }
 
 const SizeOptions = {
-  tiny: "button--tiny [ px-2 py-1 text-xs font-medium ]",
-  small: "button--small [ px-3 py-1.5 text-sm font-medium tracking-tight ]",
-  medium: "button--medium [ px-4 py-2 text-sm font-medium tracking-tight ]",
-  trigger: "[ px-4 py-2 ]",
-  large: "button--medium [ px-6 py-3 text-base font-medium tracking-tight ]",
-  icon: "button--icon [ p-2.5 ]",
-  custom: "button--custom-size",
+  tiny: 'button--tiny [ px-2 py-1 text-xs font-medium ]',
+  small: 'button--small [ px-3 py-1.5 text-sm font-medium tracking-tight ]',
+  medium: 'button--medium [ px-4 py-2 text-sm font-medium tracking-tight ]',
+  trigger: '[ px-4 py-2 ]',
+  large: 'button--medium [ px-6 py-3 text-base font-medium tracking-tight ]',
+  icon: 'button--icon [ p-2.5 ]',
+  custom: 'button--custom-size',
 }
 
 const props = defineProps({
@@ -24,7 +23,7 @@ const props = defineProps({
   look: {
     type: String,
     required: true,
-    default: 'accent'
+    default: 'accent',
   },
   size: {
     type: String,
@@ -38,17 +37,17 @@ const props = defineProps({
     type: String,
     default: '',
   },
-});
+})
 
-const $root = ref();
+const $root = ref()
 
 function focus() {
   if ($root.value) {
-    $root.value.focus();
+    $root.value.focus()
   }
 }
 
-defineExpose({ focus });
+defineExpose({ focus })
 </script>
 
 <template>
