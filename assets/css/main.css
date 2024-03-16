@@ -6,6 +6,12 @@
 	--color-stroke: 18 18 23;
 }
 
+body {
+	font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Arial, sans-serif;
+	@apply bg-background text-lg;
+}
+
 h1 {
 	@apply text-3xl md:text-5xl lg:text-7xl font-semibold;
 }
@@ -16,8 +22,4 @@ h2 {
 
 h4 {
 	@apply text-2xl md:text-3xl font-semibold;
-}
-
-body {
-	@apply bg-background;
 }
