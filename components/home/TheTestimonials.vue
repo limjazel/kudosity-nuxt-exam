@@ -2,6 +2,8 @@
 	import { computed, ref } from "vue"
 	import { useScreen } from "@/composables/use-screen.js"
 	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
+	import { ArrowPathRoundedSquareIcon } from "@heroicons/vue/16/solid"
+	import { HeartIcon } from "@heroicons/vue/24/outline"
 
 	const { width } = useScreen()
 	const tweets = [
@@ -178,15 +180,23 @@
 								<span>{{ tweet.date }}</span>
 							</div>
 
-							<div class="[ mt-4 ] [ flex gap-8 ]">
-								<div>
-									<span>Retweets:</span>
-									{{ tweet.retweets }}
+							<div class="[ mt-6 ] [ flex gap-4 ] [ text-neutral-500 ]">
+								<div class="[ flex gap-2 items-center ]">
+									<span class="[ sr-only ]">Retweets:</span>
+									<ArrowPathRoundedSquareIcon
+										class="h-5 w-5"
+										aria-hidden="true" />
+
+									<span>{{ tweet.retweets }}</span>
 								</div>
 
-								<div>
-									<span>Likes:</span>
-									{{ tweet.likes }}
+								<div class="[ flex gap-2 items-center ]">
+									<span class="[ sr-only ]">Likes:</span>
+									<HeartIcon
+										class="h-5 w-5 stroke-2"
+										aria-hidden="true" />
+
+									<span>{{ tweet.likes }}</span>
 								</div>
 							</div>
 						</div>
