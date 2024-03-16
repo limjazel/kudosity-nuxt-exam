@@ -1,5 +1,5 @@
 <script setup>
-	import { computed } from "vue"
+	import { computed, ref } from "vue"
 	import { useScreen } from "@/composables/use-screen.js"
 
 	const { width } = useScreen()
@@ -86,19 +86,6 @@
 			avatar: "",
 		},
 	]
-
-	function array_split(arr, numSplits) {
-		const chunkSize = Math.ceil(arr.length / numSplits)
-		const result = []
-
-		for (let i = 0; i < arr.length; i += chunkSize) {
-			const chunk = arr.slice(i, i + chunkSize)
-			result.push(chunk)
-		}
-
-		return result
-	}
-
 	const groupedTweets = computed(() => {
 		if (width.value > 1280) {
 			return array_split(tweets, 4)
@@ -114,16 +101,38 @@
 
 		return array_split(tweets, 1)
 	})
+
+	let testimonialContainerIsToggled = ref(false)
+
+	function array_split(arr, numSplits) {
+		const chunkSize = Math.ceil(arr.length / numSplits)
+		const result = []
+
+		for (let i = 0; i < arr.length; i += chunkSize) {
+			const chunk = arr.slice(i, i + chunkSize)
+			result.push(chunk)
+		}
+
+		return result
+	}
+
+	function toggleTestimonialContainer() {
+		testimonialContainerIsToggled.value = !testimonialContainerIsToggled.value
+	}
 </script>
 
 <template>
-	<section class="testimonials-section [ py-20 md:py-28 ]">
+	<section class="testimonials-section [ pt-20 md:pt-28 ]">
 		<div class="[ mx-auto px-6 lg:px-8 ] [ container ]">
 			<h2 class="[ text-3xl md:text-4xl lg:text-5xl text-center ]">
 				Loved by the world’s best teams
 			</h2>
 
-			<div class="[ pt-16 ]">
+			<div
+				class="testimonial-container [ pt-16 px-6 ] [ relative ]"
+				:class="{
+					'testimonial-container--is-toggled': testimonialContainerIsToggled,
+				}">
 				<div
 					class="[ grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center ]">
 					<div
@@ -163,6 +172,20 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="[ absolute bottom-0 inset-x-0 ]">
+					<div
+						class="[ pt-24 md:pt-30 pb-10 ] [ flex justify-center ] [ bg-gradient-to-t from-background via-background/80 to-background/5 ]">
+						<Button
+							type="button"
+							look="custom"
+							@click.prevent="toggleTestimonialContainer"
+							class="bg-red-500">
+							<span v-if="!testimonialContainerIsToggled">Show more</span>
+							<span v-else>Show less</span>
+						</Button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -171,5 +194,11 @@
 <style lang="postcss">
 	.testimonial-card {
 		@apply px-6 py-5 border rounded;
+	}
+	.testimonial-container {
+		@apply max-h-screen md:max-h-[70vh] overflow-hidden;
+	}
+	.testimonial-container--is-toggled {
+		@apply max-h-full pb-36;
 	}
 </style>
