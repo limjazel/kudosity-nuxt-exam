@@ -4,15 +4,18 @@
 	const faqs = [
 		{
 			question: "How can you reach more customers anywhere?",
-			bg_color: "",
+			bg_color: "bg-accent-secondary",
+			folder_ear_color: "text-accent-secondary",
 		},
 		{
 			question: "How can you boost your engagement?",
 			bg_color: "bg-accent",
+			folder_ear_color: "text-accent",
 		},
 		{
 			question: "How can you add SMS to your existing apps and platforms?",
 			bg_color: "bg-primary",
+			folder_ear_color: "text-primary",
 		},
 	]
 
@@ -90,15 +93,14 @@
 						class="[ grid ] [ relative ] [ min-h-40 lg:min-h-48 ]">
 						<span
 							class="folder-div [ flex flex-col items-center justify-end ] [ rounded-lg ]"
-							:class="faq.bg_color || 'bg-accent'">
+							:class="faq.bg_color">
 							<p class="[ py-5 px-6 ] [ text-lg lg:text-2xl font-medium ]">
 								{{ faq.question }}
 							</p>
 						</span>
 
 						<span class="[ absolute -top-4 -right-[0.5px] ] [ max-w-[8rem] ]">
-							<FolderEarIcon
-								:class="faq.bg_color.replace('bg', 'text') || 'text-accent'" />
+							<FolderEarIcon :class="faq.folder_ear_color" />
 						</span>
 					</div>
 				</div>

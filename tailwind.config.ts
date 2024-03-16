@@ -6,6 +6,8 @@ const config: ModuleOptions["config"] = {
 			colors: {
 				primary: "rgb(var(--color-primary) / <alpha-value>)",
 				accent: "rgb(var(--color-accent) / <alpha-value>)",
+				"accent-secondary":
+					"rgb(var(--color-accent-secondary) / <alpha-value>)",
 				stroke: "rgb(var(--color-stroke) / <alpha-value>)",
 			},
 		},
