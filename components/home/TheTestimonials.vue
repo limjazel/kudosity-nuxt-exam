@@ -127,9 +127,7 @@
 <template>
 	<section class="testimonials-section [ pt-20 md:pt-28 ]">
 		<div class="[ mx-auto px-6 lg:px-8 ] [ container ]">
-			<h2 class="[ text-3xl md:text-4xl lg:text-5xl text-center ]">
-				Loved by the world’s best teams
-			</h2>
+			<h2 class="[ text-center ]">Loved by the world’s best teams</h2>
 
 			<div
 				class="testimonial-container [ pt-16 px-6 ] [ relative ]"

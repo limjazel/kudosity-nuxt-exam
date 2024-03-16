@@ -33,9 +33,7 @@
 	<section class="features-section [ py-20 md:py-28 ] [ bg-[#BBACD3]/10 ]">
 		<div class="[ mx-auto px-6 lg:px-8 ] [ container ]">
 			<div class="[ grid gap-4 ] [ text-center ]">
-				<h2 class="[ text-3xl md:text-4xl lg:text-5xl ]">
-					Nothing Like Kudosity in the Market
-				</h2>
+				<h2 class="[ ]">Nothing Like Kudosity in the Market</h2>
 				<p class="[ md:mt-4 ]">
 					Create curated customer journey’s that deliver real business value
 				</p>

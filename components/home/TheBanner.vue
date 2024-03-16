@@ -19,7 +19,7 @@
 				<NuxtImg
 					src="/images/home/phone-app.jpeg"
 					alt="phone app"
-					sizes="100vw md:400px lg:680px xl:680px"
+					sizes="100vw md:400px lg:680px"
 					loading="lazy"
 					:placeholder="[680]"
 					class="[ mix-blend-screen opacity-60 ] [ w-full h-auto ]">

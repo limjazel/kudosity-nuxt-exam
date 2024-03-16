@@ -18,7 +18,7 @@ h1 {
 }
 
 h2 {
-	@apply text-2xl md:text-3xl lg:text-4xl font-medium;
+	@apply text-3xl md:text-4xl lg:text-5xl font-medium;
 }
 
 h3 {
