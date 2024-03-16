@@ -1,11 +1,119 @@
-<script setup></script>
+<script setup>
+	const tweets = [
+		{
+			username: "@rauchg",
+			nickname: "Guillermo Rauch",
+			content: `Coolest domain. Check Coolest mission. Check Coolest product. Check`,
+			date: "Sep 15, 2021",
+			time: "5:48 PM",
+			likes: "",
+			retweets: "36",
+			avatar: "",
+		},
+		{
+			username: "@mg",
+			nickname: "Matt Galligan",
+			content: `The more tools I use like @logseq @raycastapp and @calcom the more I believe in the power of an extension platform. Being able to tailor a tool to fit my needs is huge. So: can we please do the above for an email app, contacts app?`,
+			date: "Sep 15, 2021",
+			time: "5:48 PM",
+			likes: "",
+			retweets: "36",
+			avatar: "",
+		},
+		{
+			username: "@thomaspaulmann",
+			nickname: "Thomas Paul Mann",
+			content: `I'm already rocking the new @calcom extension to coordinate my meetings 😎`,
+			date: "Sep 7, 2022",
+			time: "6:19 AM",
+			likes: "",
+			retweets: "3",
+			avatar: "",
+		},
+		{
+			username: "@thisiskp_",
+			nickname: "KP",
+			content: `SaaS is eating the world\nAnd Open Source is eating SaaS for breakfast\nA lot of alternatives are rising up
+	 \n\nHere are a few:\n\nCalendly - @calcom\nAirtable - @baserow\nZapier - @n8n_io\n\nWhat else?`,
+			date: "Jun 21, 2022",
+			time: "12:27 PM",
+			likes: "",
+			retweets: "9",
+			avatar: "",
+		},
+		{
+			username: "@jhooks",
+			nickname: "joel ⛈",
+			content: `I'm already rocking the new @calcom extension to coordinate my meetings 😎`,
+			date: "Sep 7, 2022",
+			time: "6:19 AM",
+			likes: "",
+			retweets: "3",
+			avatar: "",
+		},
+		{
+			username: "@5harath",
+			nickname: "Sharath",
+			content: `Probably the first calendar app in web3 space!\n\nGreat work @peer_rich and @calcom team!`,
+			date: "Feb 8, 2022",
+			time: "1:51 PM",
+			likes: "",
+			retweets: "2",
+			avatar: "",
+		},
+		{
+			username: "@mr_wormhole",
+			nickname: "Talha Altinel",
+			content: `I am amazed by @calcom (Calendso) 's success, I was quite pessimistic that it would take off as a project in 2020 but here we are using Calendso and trying to self-host with improved documentation 🤣🤣`,
+			date: "Feb 8, 2022",
+			time: "1:51 PM",
+			likes: "",
+			retweets: "2",
+			avatar: "",
+		},
+	]
+</script>
 
 <template>
 	<section class="testimonials-section [ py-20 md:py-28 ]">
-		<div class="[ mx-auto px-6 lg:px-0 ] [ container ]">
+		<div class="[ mx-auto px-6 lg:px-8 ] [ container ]">
 			<h2 class="[ text-3xl md:text-4xl lg:text-5xl text-center ]">
 				Loved by the world’s best teams
 			</h2>
+
+			<div>
+				<div
+					v-for="(tweet, index) of tweets"
+					:key="`${index}-${tweet.username}`"
+					class="[ grid ]">
+					<div class="[ flex gap-4 ]">
+						<div>avatar here</div>
+						<div class="[ grid ]">
+							<span>{{ tweet.nickname }}</span>
+							<span>{{ tweet.username }}</span>
+						</div>
+					</div>
+
+					<p class="[ mt-2 ]">{{ tweet.content }}</p>
+
+					<div class="[ mt-12 ] [ flex gap-8 ]">
+						<span>{{ tweet.time }}</span>
+						<span>{{ tweet.date }}</span>
+					</div>
+
+					<div class="[ mt-4 ] [ flex gap-8 ]">
+						<div>
+							<span>Retweets:</span>
+							{{ tweet.retweets }}
+						</div>
+
+						<div>
+							<span>Likes:</span>
+							{{ tweet.likes }}
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 </template>

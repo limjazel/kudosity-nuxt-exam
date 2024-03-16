@@ -31,7 +31,7 @@
 
 <template>
 	<section class="features-section [ py-20 md:py-28 ] [ bg-[#BBACD3]/10 ]">
-		<div class="[ mx-auto px-6 lg:px-0 ] [ container ]">
+		<div class="[ mx-auto px-6 lg:px-8 ] [ container ]">
 			<div class="[ grid gap-4 ] [ text-center ]">
 				<h2 class="[ text-3xl md:text-4xl lg:text-5xl ]">
 					Nothing Like Kudosity in the Market
