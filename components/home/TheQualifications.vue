@@ -31,7 +31,7 @@
 			<div class="[ mr-0 lg:mr-10 ] [ relative ]">
 				<div class="[ pr-10 ]">
 					<NuxtImg
-						src="/images/dashboard.png"
+						src="/images/home/dashboard.png"
 						alt="dashboard"
 						sizes="md:400px lg:620px"
 						:placeholder="[620]" />
@@ -39,7 +39,7 @@
 
 				<div class="[ absolute -bottom-12 lg:-bottom-20 right-0 lg:-right-12 ]">
 					<NuxtImg
-						src="/images/phone-uber-message.png"
+						src="/images/home/phone-uber-message.png"
 						alt="uber message"
 						sizes="sm:120px lg:200px"
 						:placeholder="[200]"

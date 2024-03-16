@@ -1,4 +1,6 @@
 <script setup>
+	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
+
 	const banner = {
 		heading: "Curiosity to connect with customer conversations",
 		description:
@@ -14,10 +16,14 @@
 		<div class="[ relative ] [ flex flex-col lg:flex-row items-center ]">
 			<div
 				class="[ lg:mr-60 ] [ relative -bottom-32 md:-bottom-48 lg:-bottom-12 ] [ max-w-full md:max-w-xl lg:max-w-3xl ]">
-				<img
-					src="/images/phone-app.jpeg"
-					alt=""
-					class="[ mix-blend-screen opacity-80 ] [ w-full h-auto ]" />
+				<NuxtImg
+					src="/images/home/phone-app.jpeg"
+					alt="phone app"
+					sizes="100vw md:400px lg:680px xl:680px"
+					loading="lazy"
+					:placeholder="[680]"
+					class="[ mix-blend-screen opacity-60 ] [ w-full h-auto ]">
+				</NuxtImg>
 			</div>
 
 			<div
@@ -36,7 +42,7 @@
 					<div
 						class="[ max-w-24 md:max-w-32 lg:max-w-40 ] [ shadow-lg bg-neutral-100/70 ]">
 						<img
-							src="/images/popup-menu.png"
+							src="/images/home/popup-menu.png"
 							alt=""
 							class="[ w-full h-auto ]" />
 					</div>
@@ -48,14 +54,20 @@
 			class="[ mt-auto py-6 ] [ flex flex-col items-center justify-end gap-8 ] [ text-center ]">
 			<div>
 				<h1 class="[ text-white ]">{{ banner.heading }}</h1>
-				<p class="[ mt-3 ] [ text-slate-300 ]">{{ banner.description }}</p>
+				<p class="[ mt-3 ] [ text-lg text-slate-300 ]">
+					{{ banner.description }}
+				</p>
 			</div>
 
 			<Button
+				type="a"
 				look="primary"
-				as="a"
-				href="/">
-				Book a demo
+				class="[ flex gap-2 ]">
+				<span class="[ uppercase ]">Book a demo</span>
+
+				<ArrowRightIcon
+					class="h-5 w-5"
+					aria-hidden="true" />
 			</Button>
 		</div>
 	</section>
@@ -70,7 +82,7 @@
 			#9553fb 101.94%
 		);
 		background-blend-mode: overlay;
-		@apply min-h-[80vh] md:min-h-[65vh];
+		@apply min-h-[80vh] md:min-h-[65vh] lg:min-h-[40vh];
 	}
 
 	.decorative-group {
