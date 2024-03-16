@@ -1,4 +1,8 @@
 <script setup>
+	import { computed } from "vue"
+	import { useScreen } from "@/composables/use-screen.js"
+
+	const { width } = useScreen()
 	const tweets = [
 		{
 			username: "@rauchg",
@@ -26,6 +30,16 @@
 			content: `I'm already rocking the new @calcom extension to coordinate my meetings 😎`,
 			date: "Sep 7, 2022",
 			time: "6:19 AM",
+			likes: "",
+			retweets: "3",
+			avatar: "",
+		},
+		{
+			username: "@farhajmayan",
+			nickname: "Farhaj May00n (in Dilli 🇮🇳)",
+			content: `As of today I'm officially a @calcom maxi. The product is epic. @peer_rich where can I buy merch??`,
+			date: "Feb 17, 2022",
+			time: "6:31 AM",
 			likes: "",
 			retweets: "3",
 			avatar: "",
@@ -85,7 +99,21 @@
 		return result
 	}
 
-	const groupedTweets = computed(() => array_split(tweets, 4))
+	const groupedTweets = computed(() => {
+		if (width.value > 1280) {
+			return array_split(tweets, 4)
+		}
+
+		if (width.value >= 1024) {
+			return array_split(tweets, 3)
+		}
+
+		if (width.value > 728) {
+			return array_split(tweets, 2)
+		}
+
+		return array_split(tweets, 1)
+	})
 </script>
 
 <template>
@@ -96,7 +124,8 @@
 			</h2>
 
 			<div class="[ pt-16 ]">
-				<div class="[ grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ]">
+				<div
+					class="[ grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center ]">
 					<div
 						v-for="(tweets, index) in groupedTweets"
 						:key="index"
