@@ -33,8 +33,8 @@
 		{
 			username: "@thisiskp_",
 			nickname: "KP",
-			content: `SaaS is eating the world\nAnd Open Source is eating SaaS for breakfast\nA lot of alternatives are rising up
-	 \n\nHere are a few:\n\nCalendly - @calcom\nAirtable - @baserow\nZapier - @n8n_io\n\nWhat else?`,
+			content: `SaaS is eating the world\nAnd Open Source is eating SaaS for breakfast\n\nA lot of alternatives are rising up
+	 \nHere are a few:\n\nCalendly - @calcom\nAirtable - @baserow\nZapier - @n8n_io\n\nWhat else?`,
 			date: "Jun 21, 2022",
 			time: "12:27 PM",
 			likes: "",
@@ -72,6 +72,20 @@
 			avatar: "",
 		},
 	]
+
+	function array_split(arr, numSplits) {
+		const chunkSize = Math.ceil(arr.length / numSplits)
+		const result = []
+
+		for (let i = 0; i < arr.length; i += chunkSize) {
+			const chunk = arr.slice(i, i + chunkSize)
+			result.push(chunk)
+		}
+
+		return result
+	}
+
+	const groupedTweets = computed(() => array_split(tweets, 4))
 </script>
 
 <template>
@@ -81,35 +95,42 @@
 				Loved by the world’s best teams
 			</h2>
 
-			<div>
-				<div
-					v-for="(tweet, index) of tweets"
-					:key="`${index}-${tweet.username}`"
-					class="[ grid ]">
-					<div class="[ flex gap-4 ]">
-						<div>avatar here</div>
-						<div class="[ grid ]">
-							<span>{{ tweet.nickname }}</span>
-							<span>{{ tweet.username }}</span>
-						</div>
-					</div>
+			<div class="[ pt-16 ]">
+				<div class="[ grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ]">
+					<div
+						v-for="(tweets, index) in groupedTweets"
+						:key="index"
+						class="[ grid gap-4 content-start ]">
+						<div
+							v-for="(tweet, index) in tweets"
+							:key="index"
+							class="testimonial-card">
+							<div class="[ flex gap-4 ]">
+								<div>avatar here</div>
+								<div class="[ grid ]">
+									<span>{{ tweet.nickname }}</span>
+									<span>{{ tweet.username }}</span>
+								</div>
+							</div>
 
-					<p class="[ mt-2 ]">{{ tweet.content }}</p>
+							<div v-html="tweet.content.replaceAll('\n', '<br />')"></div>
 
-					<div class="[ mt-12 ] [ flex gap-8 ]">
-						<span>{{ tweet.time }}</span>
-						<span>{{ tweet.date }}</span>
-					</div>
+							<div class="[ mt-12 ] [ flex gap-8 ]">
+								<span>{{ tweet.time }}</span>
+								<span>{{ tweet.date }}</span>
+							</div>
 
-					<div class="[ mt-4 ] [ flex gap-8 ]">
-						<div>
-							<span>Retweets:</span>
-							{{ tweet.retweets }}
-						</div>
+							<div class="[ mt-4 ] [ flex gap-8 ]">
+								<div>
+									<span>Retweets:</span>
+									{{ tweet.retweets }}
+								</div>
 
-						<div>
-							<span>Likes:</span>
-							{{ tweet.likes }}
+								<div>
+									<span>Likes:</span>
+									{{ tweet.likes }}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -118,4 +139,8 @@
 	</section>
 </template>
 
-<style lang="postcss"></style>
+<style lang="postcss">
+	.testimonial-card {
+		@apply px-6 py-5 border rounded;
+	}
+</style>
