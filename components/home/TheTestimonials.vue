@@ -144,17 +144,36 @@
 							v-for="(tweet, index) in tweets"
 							:key="index"
 							class="testimonial-card">
-							<div class="[ flex gap-4 ]">
-								<div>avatar here</div>
-								<div class="[ grid ]">
-									<span>{{ tweet.nickname }}</span>
-									<span>{{ tweet.username }}</span>
+							<div class="[ flex gap-4 items-start ]">
+								<div class="testimonial-avatar [ shrink-0 grow-0 ]">
+									<NuxtImg
+										:src="
+											`${tweet.avatar}` ||
+											'/images/home/testimonial_placeholder_avatar.png'
+										"
+										:placeholder="[100, 100]"
+										:alt="`${tweet.username} icon`"
+										fit="cover"
+										loading="lazy">
+									</NuxtImg>
+								</div>
+
+								<div class="[ my-auto ] [ grid ]">
+									<span class="[ font-medium leading-tight ]">
+										{{ tweet.nickname }}
+									</span>
+									<span class="[ mt-1 ] [ text-base text-neutral-400 ]">
+										{{ tweet.username }}
+									</span>
 								</div>
 							</div>
 
-							<div v-html="tweet.content.replaceAll('\n', '<br />')"></div>
+							<div
+								v-html="tweet.content.replaceAll('\n', '<br />')"
+								class="[ pt-3 ]"></div>
 
-							<div class="[ mt-12 ] [ flex gap-8 ]">
+							<div
+								class="[ mt-12 ] [ flex gap-8 ] [ text-sm text-neutral-400 ]">
 								<span>{{ tweet.time }}</span>
 								<span>{{ tweet.date }}</span>
 							</div>
@@ -205,12 +224,15 @@
 
 <style lang="postcss">
 	.testimonial-card {
-		@apply px-6 py-5 border rounded;
+		@apply px-6 py-5 bg-white border-2 border-accent-secondary rounded-3xl;
 	}
 	.testimonial-container {
 		@apply max-h-screen md:max-h-[70vh] overflow-hidden;
 	}
 	.testimonial-container--is-toggled {
 		@apply max-h-full pb-36;
+	}
+	.testimonial-avatar {
+		@apply h-16 w-16 bg-neutral-200 border-2 border-stroke rounded-full overflow-hidden;
 	}
 </style>
