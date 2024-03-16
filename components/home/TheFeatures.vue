@@ -55,7 +55,7 @@
 							</Component>
 						</span>
 
-						<h4 class="[ max-w-20 ]">{{ feature.name }}</h4>
+						<h3 class="[ max-w-20 ]">{{ feature.name }}</h3>
 					</div>
 
 					<p class="[ text-stroke/80 ]">{{ feature.description }}</p>
