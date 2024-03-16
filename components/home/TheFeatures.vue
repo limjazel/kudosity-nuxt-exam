@@ -2,6 +2,7 @@
 	import TaskAutomationIcon from "@/components/home/decorative/features/TaskAutomationIcon"
 	import CustomerJourneysIcon from "@/components/home/decorative/features/CustomerJourneysIcon"
 	import BusinessIntelligenceIcon from "@/components/home/decorative/features/BusinessIntelligenceIcon"
+	import { ChevronDoubleRightIcon } from "@heroicons/vue/16/solid"
 
 	const features = [
 		{
@@ -35,12 +36,13 @@
 				<h2 class="[ text-3xl md:text-4xl lg:text-5xl ]">
 					Nothing Like Kudosity in the Market
 				</h2>
-				<p>
+				<p class="[ md:mt-4 ]">
 					Create curated customer journey’s that deliver real business value
 				</p>
 			</div>
 
-			<div class="[ pt-12 ] [ grid md:grid-cols-3 gap-8 content-start ]">
+			<div
+				class="[ pt-14 md:pt-20 ] [ grid lg:grid-cols-3 gap-12 content-start justify-center justify-items-center ]">
 				<div
 					v-for="(feature, index) of features"
 					:key="`feature-${index}`"
@@ -56,8 +58,16 @@
 						<h4 class="[ max-w-20 ]">{{ feature.name }}</h4>
 					</div>
 
-					<p>{{ feature.description }}</p>
-					<a href="/">{{ feature.cta }}</a>
+					<p class="[ text-stroke/80 ]">{{ feature.description }}</p>
+					<a
+						href="/"
+						class="[ flex gap-2 ] [ text-accent-secondary font-semibold ]">
+						{{ feature.cta }}
+
+						<ChevronDoubleRightIcon
+							class="[ h-6 w-6 stroke-1 ]"
+							aria-hidden="true" />
+					</a>
 				</div>
 			</div>
 		</div>
@@ -66,6 +76,6 @@
 
 <style lang="postcss">
 	.feature-card {
-		@apply px-8 py-10 grid gap-8 shadow;
+		@apply px-8 py-10 grid gap-8 bg-white shadow-lg rounded-2xl;
 	}
 </style>

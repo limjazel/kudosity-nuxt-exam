@@ -21,7 +21,9 @@
 						look="primary"
 						class="[ flex gap-2 ]">
 						<span class="[ uppercase ]">Book a demo</span>
-						<ArrowRightIcon class="h-5 w-5" />
+						<ArrowRightIcon
+							class="h-5 w-5"
+							aria-hidden="true" />
 					</Button>
 				</div>
 			</div>
