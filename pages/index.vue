@@ -46,6 +46,8 @@
 			<TheVendors />
 			<TheFaqs class="[ mt-12 ]" />
 		</div>
+
+		<TheQualifications />
 	</main>
 </template>
 

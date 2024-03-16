@@ -1,4 +1,5 @@
 :root {
+	--color-background: 248 247 255;
 	--color-primary: 149 83 251;
 	--color-accent: 74 227 206;
 	--color-accent-secondary: 66 82 255;
@@ -11,4 +12,8 @@ h1 {
 
 h2 {
 	@apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+}
+
+body {
+	@apply bg-background;
 }
