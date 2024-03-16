@@ -1,6 +1,7 @@
 <script setup>
 	import { computed, ref } from "vue"
 	import { useScreen } from "@/composables/use-screen.js"
+	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
 
 	const { width } = useScreen()
 	const tweets = [
@@ -180,9 +181,20 @@
 							type="button"
 							look="custom"
 							@click.prevent="toggleTestimonialContainer"
-							class="bg-red-500">
-							<span v-if="!testimonialContainerIsToggled">Show more</span>
-							<span v-else>Show less</span>
+							class="[ bg-stroke rounded-full ] [ text-background uppercase ]">
+							<span
+								v-if="!testimonialContainerIsToggled"
+								class="[ flex items-center gap-2 ]">
+								<span>Show more</span>
+
+								<ArrowRightIcon
+									class="h-5 w-5 relative -top-px"
+									aria-hidden="true" />
+							</span>
+
+							<span v-else>
+								<span>Show less</span>
+							</span>
 						</Button>
 					</div>
 				</div>
