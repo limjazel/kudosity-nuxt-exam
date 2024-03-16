@@ -54,9 +54,9 @@
 			<Button
 				look="primary"
 				as="a"
-				href="/"
-				>Book a demo</Button
-			>
+				href="/">
+				Book a demo
+			</Button>
 		</div>
 	</section>
 </template>

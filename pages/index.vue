@@ -48,6 +48,8 @@
 		</div>
 
 		<TheQualifications />
+
+		<TheFeatures />
 	</main>
 </template>
 
