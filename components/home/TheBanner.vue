@@ -60,8 +60,9 @@
 			</div>
 
 			<Button
-				type="a"
+				as="a"
 				look="primary"
+				href="#contact-form"
 				class="[ flex gap-2 ]">
 				<span class="[ uppercase ]">Book a demo</span>
 

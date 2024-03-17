@@ -6,6 +6,7 @@
 	import { useVuelidate } from "@vuelidate/core"
 	import { contactFormRequiredFields } from "@/helpers/home/use-contact-form-rules"
 	import { useEmailValidation } from "@/composables/use-email-validation"
+	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
 
 	const formName = "book-a-demo-form"
 	const isProcessing = ref(false)
@@ -55,7 +56,9 @@
 </script>
 
 <template>
-	<section class="contact-form [ py-20 ] [ bg-primary ]">
+	<section
+		id="contact-form"
+		class="contact-form [ py-20 ] [ bg-primary ]">
 		<div class="[ px-6 mx-auto ] [ container max-w-screen-xl ]">
 			<div class="[ flex flex-wrap lg:flex-nowrap gap-16 md:gap-12 ]">
 				<div
@@ -244,8 +247,11 @@
 							<Button
 								type="submit"
 								look="primary"
-								:disabled="isProcessing">
-								Submit Request
+								class="[ flex gap-2 ]">
+								<span class="[ uppercase ]">Submit request</span>
+								<ArrowRightIcon
+									class="h-5 w-5"
+									aria-hidden="true" />
 							</Button>
 						</div>
 					</form>
