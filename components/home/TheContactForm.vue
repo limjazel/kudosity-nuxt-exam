@@ -1,14 +1,16 @@
 <script setup>
-	import { ref } from "vue"
+	import { ref, toRefs, watch } from "vue"
 	import { getFirestore } from "firebase/firestore"
-	import { collection, getDocs, doc, query, addDoc } from "firebase/firestore"
+	import { addDoc } from "firebase/firestore"
 	import { useVuelidate } from "@vuelidate/core"
 	import { contactFormRequiredFields } from "@/helpers/home/use-contact-form-rules"
 	import { useEmailValidation } from "@/composables/use-email-validation"
 	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
 	import { useFirebase } from "@/firebase/stores/use-firebase"
+	import { useEmailAddress } from "@/stores/use-email-address"
 
 	const firebase = useFirebase()
+	const { email } = toRefs(useEmailAddress())
 	const formName = "book-a-demo-form"
 	const isProcessing = ref(false)
 	const config = useRuntimeConfig()
@@ -23,6 +25,10 @@
 	})
 	const $v = useVuelidate(contactFormRequiredFields, form)
 	const isValidEmailAddress = ref(true)
+
+	watch(email, (newEmailValue) => {
+		form.value.email_address = newEmailValue
+	})
 
 	async function handleFormSubmit() {
 		isProcessing.value = true

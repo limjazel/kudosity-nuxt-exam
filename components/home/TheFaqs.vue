@@ -2,7 +2,9 @@
 	import { ref, reactive } from "vue"
 	import { useEmailValidation } from "@/composables/use-email-validation"
 	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
+	import { useEmailAddress } from "@/stores/use-email-address"
 
+	const useEmailStore = useEmailAddress()
 	const faqs = [
 		{
 			question: "How can you reach more customers anywhere?",
@@ -22,17 +24,11 @@
 	]
 
 	let email = ref("")
-	let isProcessing = ref(false)
 
 	function handleSubmitEmailAddress() {
-		isProcessing.value = true
-		if (useEmailValidation(email.value)) {
-			alert(
-				`Your request has been sent. A representative will reach out to you via ${email.value} in 2-3 days.`,
-			)
-
-			isProcessing.value = false
-		}
+		useEmailStore.storeEmail(email.value)
+		const targetElement = document.getElementById("contact-form")
+		targetElement.scrollIntoView({ behavior: "smooth" })
 	}
 </script>
 
@@ -49,9 +45,7 @@
 						Request a free demo to see for yourself
 					</p>
 
-					<form
-						action=""
-						@submit="handleSubmitEmailAddress">
+					<form @submit.prevent="handleSubmitEmailAddress">
 						<div class="[ mt-1 ] [ relative -left-2 ] [ flex items-center ]">
 							<label
 								for="faqs-contact-input"
