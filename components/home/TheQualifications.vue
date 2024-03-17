@@ -17,7 +17,8 @@
 
 				<div class="[ mt-2 ]">
 					<Button
-						type="a"
+						as="a"
+            href="#contact-form"
 						look="primary"
 						class="[ flex gap-2 ]">
 						<span class="[ uppercase ]">Book a demo</span>
