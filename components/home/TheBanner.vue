@@ -55,7 +55,13 @@
 			class="[ mt-auto py-6 ] [ flex flex-col items-center justify-end gap-8 ] [ text-center ]">
 			<div>
 				<h1 class="[ text-white ]">
-					Curiosity to <span class="heading-decor">&#60;</span>connect<span
+					Curiosity to
+					<span
+						class="heading-decor"
+						aria-hidden="true"
+						>&#60;</span
+					>connect<span
+						aria-hidden="true"
 						class="heading-decor"
 						>&#62;</span
 					>
@@ -103,7 +109,7 @@
 	}
 
 	.contacts-decorative {
-		@apply p-3 md:py-2 md:px-4 border opacity-55;
 		box-sizing: border-box;
+		@apply p-3 md:py-2 md:px-4 border opacity-55 select-none pointer-events-none;
 	}
 </style>
