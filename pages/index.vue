@@ -64,6 +64,8 @@
 		<TheFeatures />
 
 		<TheTestimonials />
+
+		<TheContactForm />
 	</main>
 </template>
 

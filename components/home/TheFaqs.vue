@@ -52,10 +52,15 @@
 						action=""
 						@submit="handleSubmitEmailAddress">
 						<div class="[ mt-1 ] [ relative -left-2 ] [ flex items-center ]">
+							<label
+								for="faqs-contact-input"
+								class="[ sr-only ]">
+								What's your business email?
+							</label>
 							<Input
 								v-model="email"
 								type="text"
-								name="faqs-contact-input"
+								id="faqs-contact-input"
 								look="custom"
 								placeholder="What's your business email?"
 								class="faqs-custom-input" />
