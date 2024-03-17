@@ -34,9 +34,10 @@
 
 <template>
 	<section class="contact-form [ py-20 ] [ bg-primary ]">
-		<div class="[ px-6 mx-auto ] [ container ]">
-			<div class="[ flex flex-wrap gap-10 ]">
-				<div class="[ grid ] [ w-full md:w-1/3 ]">
+		<div class="[ px-6 mx-auto ] [ container max-w-screen-xl ]">
+			<div class="[ flex flex-wrap lg:flex-nowrap gap-12 ]">
+				<div
+					class="[ lg:mr-12 ] [ grid content-start ] [ w-full md:w-1/2 lg:min-w-1/3 ]">
 					<h2 class="[ font-bold ]">Book your demo today</h2>
 					<p class="[ mt-12 ]">
 						“Kudosity was the easiest and most effective marketing tool we’ve
@@ -46,13 +47,18 @@
 					<span class="[ mt-6 ]">Uber, Singapore</span>
 				</div>
 
-				<div>
+				<div class="[ xl:px-12 ] [ w-full ]">
 					<form
 						action=""
-						@submit.prevent="handleFormSubmit">
-						<div>
+						@submit.prevent="handleFormSubmit"
+						class="[ flex flex-col gap-6 ]">
+						<div class="[ grid md:grid-cols-2 gap-6 ]">
 							<div>
-								<label :for="`${formName}-input-first-name`">First name</label>
+								<label
+									:for="`${formName}-input-first-name`"
+									class="contact-form-label">
+									First name
+								</label>
 								<Input
 									v-model="form.first_name"
 									:id="`${formName}-input-first-name`"
@@ -62,7 +68,11 @@
 							</div>
 
 							<div>
-								<label :for="`${formName}-input-last-name`">Last name</label>
+								<label
+									:for="`${formName}-input-last-name`"
+									class="contact-form-label">
+									Last name
+								</label>
 								<Input
 									v-model="form.last_name"
 									:id="`${formName}-input-last-name`"
@@ -72,9 +82,13 @@
 							</div>
 						</div>
 
-						<div>
+						<div class="[ grid md:grid-cols-2 gap-6 ]">
 							<div>
-								<label :for="`${formName}-input-company`">Company</label>
+								<label
+									:for="`${formName}-input-company`"
+									class="contact-form-label">
+									Company
+								</label>
 								<Input
 									v-model="form.company"
 									:id="`${formName}-input-company`"
@@ -84,7 +98,9 @@
 							</div>
 
 							<div>
-								<label :for="`${formName}-input-contact-number`">
+								<label
+									:for="`${formName}-input-contact-number`"
+									class="contact-form-label">
 									Phone number
 								</label>
 								<Input
@@ -98,7 +114,11 @@
 
 						<div>
 							<div>
-								<label :for="`${formName}-input-email`">Email address</label>
+								<label
+									:for="`${formName}-input-email`"
+									class="contact-form-label">
+									Email address
+								</label>
 								<Input
 									v-model="form.email_address"
 									:id="`${formName}-input-email`"
@@ -110,7 +130,9 @@
 
 						<div>
 							<div>
-								<label :for="`${formName}-input-message-subject`">
+								<label
+									:for="`${formName}-input-message-subject`"
+									class="contact-form-label">
 									Subject
 								</label>
 								<Input
@@ -124,7 +146,9 @@
 
 						<div>
 							<div>
-								<label :for="`${formName}-input-message-content`">
+								<label
+									:for="`${formName}-input-message-content`"
+									class="contact-form-label">
 									Message
 								</label>
 								<textarea
@@ -135,12 +159,14 @@
 							</div>
 						</div>
 
-						<Button
-							type="submit"
-							look="primary"
-							:disabled="isProcessing">
-							Submit Request
-						</Button>
+						<div>
+							<Button
+								type="submit"
+								look="primary"
+								:disabled="isProcessing">
+								Submit Request
+							</Button>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -149,6 +175,9 @@
 </template>
 
 <style lang="postcss">
+	.contact-form-label {
+		@apply sr-only;
+	}
 	.input-custom-focus-visible {
 		@apply focus-visible:ring-offset-primary;
 	}
