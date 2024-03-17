@@ -15,7 +15,7 @@
 			<div class="[ flex justify-between lg:hidden ]">
 				<NuxtLink
 					to="/"
-					@click="handleToggleMobileMenu">
+					@click.prevent="() => (mobileMenuIsToggled = false)">
 					<span class="[ sr-only ]">Home</span>
 					<TheLogo
 						class="[ h-7 w-auto ]"
