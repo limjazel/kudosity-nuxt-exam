@@ -5,9 +5,11 @@
 	import { collection, getDocs, doc, query, addDoc } from "firebase/firestore"
 	import { useVuelidate } from "@vuelidate/core"
 	import { contactFormRequiredFields } from "@/helpers/home/use-contact-form-rules"
+	import { useEmailValidation } from "@/composables/use-email-validation"
 
 	const formName = "book-a-demo-form"
 	const isProcessing = ref(false)
+	const config = useRuntimeConfig()
 	let form = ref({
 		first_name: "",
 		last_name: "",
@@ -17,14 +19,15 @@
 		message_subject: "",
 		message_content: "",
 	})
-
-	const config = useRuntimeConfig()
+	const $v = useVuelidate(contactFormRequiredFields, form)
+	const isValidEmailAddress = ref(true)
 
 	async function handleFormSubmit() {
 		isProcessing.value = true
+		isValidEmailAddress.value = useEmailValidation(form.value.email_address)
 		$v.value.$validate()
 
-		if ($v.value.$error) {
+		if ($v.value.$error || !isValidEmailAddress.value) {
 			isProcessing.value = false
 			return
 		}
@@ -35,18 +38,20 @@
 
 		try {
 			const newDocRef = await addDoc($collection, form.value)
-			console.log("Message sent with ID:", newDocRef.id)
+			alert(
+				"Your message has been sent. Expect a reply in 2-3 business days. Thank you.",
+			)
 
 			isProcessing.value = false
 			$v.value.$reset()
 		} catch (error) {
-			console.error("Error sending message:", error)
+			alert(
+				"There's been an error trying to send your message. Please try again in a few minutes.",
+			)
 
 			isProcessing.value = false
 		}
 	}
-
-	const $v = useVuelidate(contactFormRequiredFields, form)
 </script>
 
 <template>
@@ -190,11 +195,19 @@
 									class="input-custom-focus-visible" />
 							</div>
 
-							<span
-								v-if="$v.email_address.$error"
-								class="contact-form-error-message [ order-1 ]">
-								{{ $v.email_address.$errors[0].$message }}
-							</span>
+							<div class="flex gap-1">
+								<span
+									v-if="$v.email_address.$error"
+									class="contact-form-error-message [ order-1 ]">
+									{{ $v.email_address.$errors[0].$message }}
+								</span>
+
+								<span
+									v-if="!isValidEmailAddress"
+									class="contact-form-error-message [ order-1 ]">
+									Please enter a valid email address.
+								</span>
+							</div>
 						</div>
 
 						<div>

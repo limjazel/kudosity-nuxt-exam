@@ -1,5 +1,6 @@
 <script setup>
 	import { ref, reactive } from "vue"
+	import { useEmailValidation } from "@/composables/use-email-validation"
 
 	const faqs = [
 		{
@@ -19,13 +20,12 @@
 		},
 	]
 
-	const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 	let email = ref("")
 	let isProcessing = ref(false)
 
 	function handleSubmitEmailAddress() {
 		isProcessing.value = true
-		if (emailRegex.test(email.value)) {
+		if (useEmailValidation(email.value)) {
 			alert(
 				`Your request has been sent. A representative will reach out to you via ${email.value} in 2-3 days.`,
 			)
@@ -68,7 +68,7 @@
 							<Button
 								type="submit"
 								look="custom"
-								:disabled="!emailRegex.test(email)"
+								:disabled="!useEmailValidation(email)"
 								class="[ py-4 ] [ bg-accent rounded-full ] [ absolute right-0 ]">
 								<span class="[ sr-only ]">Send</span>
 								<span>
