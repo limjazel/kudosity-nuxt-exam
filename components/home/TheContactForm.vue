@@ -196,18 +196,17 @@
 						</div>
 
 						<div>
-							<div>
-								<label
-									:for="`${formName}-input-message-content`"
-									class="contact-form-label">
-									Message
-								</label>
-								<textarea
-									v-model="form.message_content"
-									:id="`${formName}-input-message-content`"
-									placeholder="Message"
-									class="input-custom-focus-visible" />
-							</div>
+							<label
+								:for="`${formName}-input-message-content`"
+								class="contact-form-label">
+								Message
+							</label>
+							<textarea
+								v-model="form.message_content"
+								:id="`${formName}-input-message-content`"
+								placeholder="Message"
+								rows="4"
+								class="textarea-input input-custom-focus-visible" />
 						</div>
 
 						<div>
@@ -234,5 +233,10 @@
 	}
 	.input-custom-focus-visible {
 		@apply focus-visible:ring-offset-primary;
+	}
+	.textarea-input {
+		@apply shadow-sm px-4 py-2.5 w-full transition duration-100 
+    focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-primary outline-none
+    text-white placeholder:text-white/60 border-b border-white bg-transparent;
 	}
 </style>
