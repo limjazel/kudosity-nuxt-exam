@@ -34,7 +34,7 @@
 			},
 			{
 				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap",
+				href: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap",
 			},
 		],
 		icon: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],

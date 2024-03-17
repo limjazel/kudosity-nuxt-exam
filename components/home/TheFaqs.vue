@@ -99,7 +99,8 @@
 						<span
 							class="folder-div [ flex flex-col items-center justify-end ] [ rounded-lg ]"
 							:class="faq.bg_color">
-							<p class="[ py-5 px-6 ] [ text-lg lg:text-2xl font-medium ]">
+							<p
+								class="[ font-grotesk ] [ py-5 px-6 ] [ text-lg lg:text-2xl font-medium ]">
 								{{ faq.question }}
 							</p>
 						</span>
