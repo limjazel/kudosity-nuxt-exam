@@ -1,6 +1,7 @@
 <script setup>
 	import { ref, reactive } from "vue"
 	import { useEmailValidation } from "@/composables/use-email-validation"
+	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
 
 	const faqs = [
 		{
@@ -71,20 +72,10 @@
 								:disabled="!useEmailValidation(email)"
 								class="[ py-4 ] [ bg-accent rounded-full ] [ absolute right-0 ]">
 								<span class="[ sr-only ]">Send</span>
-								<span>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke-width="1.5"
-										stroke="currentColor"
-										class="w-6 h-6">
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-									</svg>
-								</span>
+
+								<ArrowRightIcon
+									class="h-5 w-5"
+									aria-hidden="true" />
 							</Button>
 						</div>
 					</form>
