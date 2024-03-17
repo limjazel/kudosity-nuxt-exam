@@ -1,13 +1,14 @@
 <script setup>
 	import { ref } from "vue"
-	import { initializeFirebase } from "@/firebase/use-firebase"
 	import { getFirestore } from "firebase/firestore"
 	import { collection, getDocs, doc, query, addDoc } from "firebase/firestore"
 	import { useVuelidate } from "@vuelidate/core"
 	import { contactFormRequiredFields } from "@/helpers/home/use-contact-form-rules"
 	import { useEmailValidation } from "@/composables/use-email-validation"
 	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
+	import { useFirebase } from "@/firebase/stores/use-firebase"
 
+	const firebase = useFirebase()
 	const formName = "book-a-demo-form"
 	const isProcessing = ref(false)
 	const config = useRuntimeConfig()
@@ -33,12 +34,8 @@
 			return
 		}
 
-		const app = await initializeFirebase(config.public.firebase)
-		const db = getFirestore(app)
-		const $collection = collection(db, "contact-form")
-
 		try {
-			const newDocRef = await addDoc($collection, form.value)
+			const newDocRef = await addDoc(firebase.collection(), form.value)
 			alert(
 				"Your message has been sent. Expect a reply in 2-3 business days. Thank you.",
 			)
