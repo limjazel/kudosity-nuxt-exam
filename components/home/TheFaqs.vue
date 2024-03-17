@@ -105,7 +105,9 @@
 						</span>
 
 						<span class="[ absolute -top-4 -right-[0.5px] ] [ max-w-[8rem] ]">
-							<FolderEarIcon :class="faq.folder_ear_color" />
+							<FolderEarIcon
+								:class="faq.folder_ear_color"
+								aria-hidden="true" />
 						</span>
 					</div>
 				</div>

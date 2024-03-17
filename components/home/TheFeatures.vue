@@ -49,6 +49,7 @@
 						<span>
 							<Component
 								:is="feature.icon"
+								aria-hidden="true"
 								class="[ h-12 w-auto ]">
 							</Component>
 						</span>

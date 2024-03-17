@@ -7,7 +7,7 @@
 		<div
 			class="[ mx-auto ] [ container max-w-screen-xl ] [ flex flex-wrap md:flex-nowrap items-center justify-between gap-12 ]">
 			<div class="[ grid gap-4 lg:gap-6 justify-start ] [ w-full md:w-1/3 ]">
-				<VideoCamIcon class="[ h-12 w-auto ]" />
+				<VideoCamIcon class="[ h-12 w-auto ]" aria-hidden="true"/>
 				<h2>Lead Qualification</h2>
 				<p>
 					Increase the quality of your leads, and allow your team to focus on
