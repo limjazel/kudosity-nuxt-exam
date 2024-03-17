@@ -20,7 +20,6 @@
 					src="/images/home/phone-app.jpeg"
 					alt="phone app"
 					sizes="100vw md:400px lg:680px"
-					loading="lazy"
 					:placeholder="[680]"
 					class="[ mix-blend-screen opacity-60 ] [ w-full h-auto ]">
 				</NuxtImg>
@@ -41,10 +40,12 @@
 				<div class="popup-menu-decorative">
 					<div
 						class="[ max-w-24 md:max-w-32 lg:max-w-40 ] [ shadow-lg bg-neutral-100/70 ]">
-						<img
+						<NuxtImg
 							src="/images/home/popup-menu.png"
-							alt=""
-							class="[ w-full h-auto ]" />
+							alt="popup menu"
+							sizes="96px md:128px lg:160px"
+							:placeholder="[160]">
+						</NuxtImg>
 					</div>
 				</div>
 			</div>
@@ -53,8 +54,15 @@
 		<div
 			class="[ mt-auto py-6 ] [ flex flex-col items-center justify-end gap-8 ] [ text-center ]">
 			<div>
-				<h1 class="[ text-white ]">{{ banner.heading }}</h1>
-				<p class="[ mt-3 ] [ text-lg text-slate-300 ]">
+				<h1 class="[ text-white ]">
+					Curiosity to <span class="heading-decor">&#60;</span>connect<span
+						class="heading-decor"
+						>&#62;</span
+					>
+					with customer conversations
+				</h1>
+				<p
+					class="[ mt-3 mx-auto ] [ text-lg text-center text-slate-300 ] [ max-w-2xl ]">
 					{{ banner.description }}
 				</p>
 			</div>
@@ -74,7 +82,7 @@
 	</section>
 </template>
 
-<style scoped>
+<style lang="postcss" scoped>
 	.banner {
 		background: linear-gradient(
 			168.45deg,
@@ -84,6 +92,10 @@
 		);
 		background-blend-mode: overlay;
 		@apply min-h-[80vh] md:min-h-[65vh] lg:min-h-[40vh];
+	}
+
+	.heading-decor {
+		@apply not-sr-only relative top-1 text-primary;
 	}
 
 	.decorative-group {
