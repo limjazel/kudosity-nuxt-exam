@@ -52,6 +52,7 @@
 
 <template>
 	<main>
+		<TheContactForm />
 		<TheBanner />
 
 		<div class="[ pt-12 pb-24 md:pb-36 ] [ bg-stroke ] [ rounded-b-3xl ]">
@@ -64,8 +65,6 @@
 		<TheFeatures />
 
 		<TheTestimonials />
-
-		<TheContactForm />
 	</main>
 </template>
 

@@ -1,5 +1,8 @@
 <script setup>
 	import { ref } from "vue"
+	import { initializeFirebase } from "@/firebase/use-firebase"
+	import { getFirestore } from "firebase/firestore"
+	import { collection, getDocs, doc, query, addDoc } from "firebase/firestore"
 
 	const formName = "book-a-demo-form"
 	const isProcessing = ref(false)
@@ -9,12 +12,23 @@
 		company: "",
 		contact_number: "",
 		email_address: "",
-		email_subject: "",
-		email_content: "",
+		message_subject: "",
+		message_content: "",
 	})
 
-	function handleFormSubmit() {
-		console.error("sending...")
+	const config = useRuntimeConfig()
+
+	async function handleFormSubmit() {
+		const app = await initializeFirebase(config.public.firebase)
+		const db = getFirestore(app)
+		const $collection = collection(db, "contact-form")
+
+		try {
+			const newDocRef = await addDoc($collection, form.value)
+			console.log("Message sent with ID:", newDocRef.id)
+		} catch (error) {
+			console.error("Error sending message:", error)
+		}
 	}
 </script>
 
@@ -30,8 +44,6 @@
 					</p>
 
 					<span class="[ mt-6 ]">Uber, Singapore</span>
-
-					{{ form }}
 				</div>
 
 				<div>
@@ -98,10 +110,12 @@
 
 						<div>
 							<div>
-								<label :for="`${formName}-input-email-subject`">Subject</label>
+								<label :for="`${formName}-input-message-subject`">
+									Subject
+								</label>
 								<Input
-									v-model="form.email_subject"
-									:id="`${formName}-input-email-subject`"
+									v-model="form.message_subject"
+									:id="`${formName}-input-message-subject`"
 									look="line"
 									placeholder="Subject"
 									class="input-custom-focus-visible" />
@@ -110,10 +124,12 @@
 
 						<div>
 							<div>
-								<label :for="`${formName}-input-email-content`">Message</label>
+								<label :for="`${formName}-input-message-content`">
+									Message
+								</label>
 								<textarea
-									v-model="form.email_content"
-									:id="`${formName}-input-email-content`"
+									v-model="form.message_content"
+									:id="`${formName}-input-message-content`"
 									placeholder="Message"
 									class="input-custom-focus-visible" />
 							</div>
