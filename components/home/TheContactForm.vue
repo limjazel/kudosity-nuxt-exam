@@ -3,6 +3,8 @@
 	import { initializeFirebase } from "@/firebase/use-firebase"
 	import { getFirestore } from "firebase/firestore"
 	import { collection, getDocs, doc, query, addDoc } from "firebase/firestore"
+	import { useVuelidate } from "@vuelidate/core"
+	import { contactFormRequiredFields } from "@/helpers/home/use-contact-form-rules"
 
 	const formName = "book-a-demo-form"
 	const isProcessing = ref(false)
@@ -19,6 +21,14 @@
 	const config = useRuntimeConfig()
 
 	async function handleFormSubmit() {
+		isProcessing.value = true
+		$v.value.$validate()
+
+		if ($v.value.$error) {
+			isProcessing.value = false
+			return
+		}
+
 		const app = await initializeFirebase(config.public.firebase)
 		const db = getFirestore(app)
 		const $collection = collection(db, "contact-form")
@@ -26,16 +36,23 @@
 		try {
 			const newDocRef = await addDoc($collection, form.value)
 			console.log("Message sent with ID:", newDocRef.id)
+
+			isProcessing.value = false
+			$v.value.$reset()
 		} catch (error) {
 			console.error("Error sending message:", error)
+
+			isProcessing.value = false
 		}
 	}
+
+	const $v = useVuelidate(contactFormRequiredFields, form)
 </script>
 
 <template>
 	<section class="contact-form [ py-20 ] [ bg-primary ]">
 		<div class="[ px-6 mx-auto ] [ container max-w-screen-xl ]">
-			<div class="[ flex flex-wrap lg:flex-nowrap gap-12 ]">
+			<div class="[ flex flex-wrap lg:flex-nowrap gap-16 md:gap-12 ]">
 				<div
 					class="[ lg:mr-12 ] [ grid content-start ] [ w-full md:w-1/2 lg:min-w-1/3 ]">
 					<h2 class="[ font-bold ]">Book your demo today</h2>
@@ -51,39 +68,58 @@
 					<form
 						action=""
 						@submit.prevent="handleFormSubmit"
-						class="[ flex flex-col gap-6 ]">
+						class="[ flex flex-col gap-10 ]">
+						<!-- First row -->
 						<div class="[ grid md:grid-cols-2 gap-6 ]">
-							<div>
-								<label
-									:for="`${formName}-input-first-name`"
-									class="contact-form-label">
-									First name
-								</label>
-								<Input
-									v-model="form.first_name"
-									:id="`${formName}-input-first-name`"
-									look="line"
-									placeholder="First name"
-									class="input-custom-focus-visible" />
+							<div class="[ flex flex-col ]">
+								<div class="order-2">
+									<label
+										:for="`${formName}-input-first-name`"
+										class="contact-form-label">
+										First name
+									</label>
+									<Input
+										v-model="form.first_name"
+										:id="`${formName}-input-first-name`"
+										look="line"
+										placeholder="First name"
+										class="input-custom-focus-visible" />
+								</div>
+
+								<span
+									v-if="$v.first_name.$error"
+									class="contact-form-error-message [ order-1 ]">
+									{{ $v.first_name.$errors[0].$message }}
+								</span>
 							</div>
 
-							<div>
-								<label
-									:for="`${formName}-input-last-name`"
-									class="contact-form-label">
-									Last name
-								</label>
-								<Input
-									v-model="form.last_name"
-									:id="`${formName}-input-last-name`"
-									look="line"
-									placeholder="Last name"
-									class="input-custom-focus-visible" />
+							<div class="[ flex flex-col ]">
+								<div class="order-2">
+									<label
+										:for="`${formName}-input-last-name`"
+										class="contact-form-label">
+										Last name
+									</label>
+									<Input
+										v-model="form.last_name"
+										:id="`${formName}-input-last-name`"
+										look="line"
+										placeholder="Last name"
+										class="input-custom-focus-visible" />
+								</div>
+
+								<span
+									v-if="$v.last_name.$error"
+									class="contact-form-error-message [ order-1 ]">
+									{{ $v.last_name.$errors[0].$message }}
+								</span>
 							</div>
 						</div>
+						<!-- / First row -->
 
+						<!-- Second row -->
 						<div class="[ grid md:grid-cols-2 gap-6 ]">
-							<div>
+							<div class="mt-auto">
 								<label
 									:for="`${formName}-input-company`"
 									class="contact-form-label">
@@ -97,23 +133,32 @@
 									class="input-custom-focus-visible" />
 							</div>
 
-							<div>
-								<label
-									:for="`${formName}-input-contact-number`"
-									class="contact-form-label">
-									Phone number
-								</label>
-								<Input
-									v-model="form.contact_number"
-									:id="`${formName}-input-contact-number`"
-									look="line"
-									placeholder="Phone number"
-									class="input-custom-focus-visible" />
+							<div class="[ flex flex-col ]">
+								<div class="order-2">
+									<label
+										:for="`${formName}-input-contact-number`"
+										class="contact-form-label">
+										Phone number
+									</label>
+									<Input
+										v-model="form.contact_number"
+										:id="`${formName}-input-contact-number`"
+										look="line"
+										placeholder="Phone number"
+										class="input-custom-focus-visible" />
+								</div>
+
+								<span
+									v-if="$v.contact_number.$error"
+									class="contact-form-error-message [ order-1 ]">
+									{{ $v.contact_number.$errors[0].$message }}
+								</span>
 							</div>
 						</div>
+						<!-- / Second row -->
 
-						<div>
-							<div>
+						<div class="[ flex flex-col ]">
+							<div class="order-2">
 								<label
 									:for="`${formName}-input-email`"
 									class="contact-form-label">
@@ -126,6 +171,12 @@
 									placeholder="Email address"
 									class="input-custom-focus-visible" />
 							</div>
+
+							<span
+								v-if="$v.email_address.$error"
+								class="contact-form-error-message [ order-1 ]">
+								{{ $v.email_address.$errors[0].$message }}
+							</span>
 						</div>
 
 						<div>
@@ -177,6 +228,9 @@
 <style lang="postcss">
 	.contact-form-label {
 		@apply sr-only;
+	}
+	.contact-form-error-message {
+		@apply text-red-300 text-sm font-semibold relative -top-1;
 	}
 	.input-custom-focus-visible {
 		@apply focus-visible:ring-offset-primary;
