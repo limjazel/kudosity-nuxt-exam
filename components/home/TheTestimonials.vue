@@ -162,7 +162,7 @@
 									<span class="[ font-medium leading-tight ]">
 										{{ tweet.nickname }}
 									</span>
-									<span class="[ mt-1 ] [ text-base text-neutral-400 ]">
+									<span class="[ mt-1 ] [ text-base text-neutral-500 ]">
 										{{ tweet.username }}
 									</span>
 								</div>
