@@ -13,11 +13,11 @@
 <template>
 	<section
 		class="banner [ px-6 md:px-12 pb-12 md:pb-16 ] [ flex flex-col items-center ]">
-		<div class="[ relative ] [ flex flex-col lg:flex-row items-center ]">
-			<div
-				class="[ lg:mr-60 ] [ relative -bottom-32 md:-bottom-48 lg:-bottom-12 ] [ max-w-full md:max-w-xl lg:max-w-3xl ]">
+		<div
+			class="[ lg:pt-8 ] [ flex flex-col lg:flex-row items-center lg:items-start justify-center ]">
+			<div class="order-2 lg:order-1 [ lg:mr-10 ] [ max-w-xs md:max-w-md ]">
 				<NuxtImg
-					src="/images/home/phone-app.jpeg"
+					src="/images/home/phone-app-2.jpeg"
 					alt="phone app"
 					sizes="400px md:400px lg:680px"
 					:placeholder="[680]"
@@ -25,10 +25,9 @@
 				</NuxtImg>
 			</div>
 
-			<div
-				class="decorative-group [ absolute top-[5%] md:top-6 lg:top-[20%] lg:right-0 ]">
+			<div class="decorative-group [ pt-10 ] [ order-1 lg:order-2 ]">
 				<div
-					class="contacts-decorative [ mt-12 md:mt-16 lg:mt-28 ] [ text-white text-[0.5rem] lg:text-[0.65rem] ]">
+					class="contacts-decorative [ mt-12 md:mt-16 lg:mt-24 ] [ text-white text-[0.5rem] lg:text-[0.65rem] ]">
 					<span>Contacts</span>
 					<ul class="[ mt-2 ] [ leading-loose ]">
 						<li v-for="person in people">
@@ -38,12 +37,11 @@
 				</div>
 
 				<div class="popup-menu-decorative">
-					<div
-						class="[ max-w-24 md:max-w-32 lg:max-w-40 ] [ shadow-lg bg-neutral-100/70 ]">
+					<div class="[ shadow-lg bg-neutral-100/90 ]">
 						<NuxtImg
 							src="/images/home/popup-menu.png"
 							alt="popup menu"
-							sizes="96px md:128px lg:160px"
+							sizes="120px md:128px lg:160px"
 							:placeholder="[160]">
 						</NuxtImg>
 					</div>
@@ -52,9 +50,9 @@
 		</div>
 
 		<div
-			class="[ mt-auto py-6 ] [ flex flex-col items-center justify-end gap-8 ] [ text-center ]">
+			class="[ -mt-10 py-6 ] [ flex flex-col items-center justify-end gap-8 ] [ text-center ]">
 			<div>
-				<h1 class="[ text-white ]">
+				<h1 class="[ text-white ] [ max-w-screen-md lg:max-w-screen-lg ]">
 					Curiosity to
 					<span
 						class="heading-decor"
@@ -68,7 +66,7 @@
 					with customer conversations
 				</h1>
 				<p
-					class="[ mt-3 mx-auto ] [ text-lg text-center text-slate-300 ] [ max-w-2xl ]">
+					class="[ mt-3 mx-auto ] [ text-base md:text-lg text-center text-slate-300 ] [ max-w-2xl ]">
 					{{ banner.description }}
 				</p>
 			</div>

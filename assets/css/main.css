@@ -23,7 +23,7 @@ h5 {
 }
 
 h1 {
-	@apply text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium;
+	@apply text-4xl md:text-5xl lg:text-7xl font-medium;
 }
 
 h2 {
