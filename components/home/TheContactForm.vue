@@ -82,7 +82,7 @@
 							</svg>
 						</span>
 
-						<p class="[ mt-20 px-4 ] [ text-white/70 ] [ relative z-10 ]">
+						<p class="[ mt-20 px-4 ] [ text-white ] [ relative z-10 ]">
 							“Kudosity was the easiest and most effective marketing tool we’ve
 							ever used for
 							<span class="[ font-bold ]">lead qualification</span> at Uber.”
