@@ -77,7 +77,7 @@
 		ogImage: homepage.ogImage,
 		twitterTitle: homepage.ogTitle,
 		twitterDescription: homepage.ogDescription,
-		twitterCardImage: homepage.ogImage,
+		twitterImage: homepage.ogImage,
 		twitterCard: "summary_large_image",
 	})
 </script>
