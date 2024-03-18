@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-	<section class="footer [ bg-stroke ]">
+	<footer class="footer [ bg-stroke ]">
 		<h3 class="[ sr-only ]">The footer</h3>
 
 		<div class="[ py-32 px-10 mx-auto ] [ container max-w-screen-xl ]">
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</footer>
 </template>
 
 <style lang="postcss">
