@@ -18,7 +18,7 @@
 			<div class="order-2 lg:order-1 [ lg:mr-10 ] [ max-w-xs md:max-w-md ]">
 				<NuxtImg
 					src="/images/home/phone-app-2.jpeg"
-					alt="phone app"
+					alt="phone app dashboard"
 					format="webp"
 					width="400px"
 					height="360px"
@@ -27,23 +27,18 @@
 			</div>
 
 			<div class="decorative-group [ pt-10 ] [ order-1 lg:order-2 ]">
-				<div
-					class="contacts-decorative [ mt-12 md:mt-16 lg:mt-24 ] [ text-white text-[0.5rem] lg:text-[0.65rem] ]">
-					<span>Contacts</span>
-					<ul class="[ mt-2 ] [ leading-loose ]">
-						<li v-for="person in people">
-							{{ person }}
-						</li>
-					</ul>
+				<div class="contacts-decorative [ mt-16 lg:mt-24 ]">
+					<div><ContactListImage aria-hidden="true" /></div>
 				</div>
 
 				<div class="popup-menu-decorative">
-					<div class="[ shadow-lg bg-neutral-100/90 ]">
+					<div class="[ shadow-lg bg-neutral-100/80 ]">
 						<NuxtImg
 							src="/images/home/popup-menu.png"
 							alt="popup menu"
 							format="webp"
-							width="140px">
+							width="140px"
+							height="142px">
 						</NuxtImg>
 					</div>
 				</div>
@@ -98,17 +93,10 @@
 		background-blend-mode: overlay;
 		@apply min-h-[40vh];
 	}
-
 	.heading-decor {
 		@apply not-sr-only relative top-1 text-primary;
 	}
-
 	.decorative-group {
-		@apply hidden lg:flex items-start gap-4 md:gap-10;
-	}
-
-	.contacts-decorative {
-		box-sizing: border-box;
-		@apply p-3 md:py-2 md:px-4 border opacity-55 select-none pointer-events-none;
+		@apply flex items-start gap-4 md:gap-10;
 	}
 </style>
