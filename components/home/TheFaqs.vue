@@ -1,6 +1,6 @@
 <script setup>
 	import { ref, reactive } from "vue"
-	import { useEmailValidation } from "@/composables/use-email-validation"
+	import { useEmailValidation } from "@/utils/home/use-email-validation"
 	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
 	import { useEmailAddress } from "@/stores/use-email-address"
 
