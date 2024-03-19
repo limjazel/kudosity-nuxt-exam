@@ -7,7 +7,9 @@
 		<div
 			class="[ mx-auto ] [ container max-w-screen-xl ] [ flex flex-wrap md:flex-nowrap items-center justify-between gap-12 ]">
 			<div class="[ grid gap-4 lg:gap-6 justify-start ] [ w-full md:w-1/3 ]">
-				<VideoCamIcon class="[ h-12 w-auto ]" aria-hidden="true"/>
+				<VideoCamIcon
+					class="[ h-12 w-auto ]"
+					aria-hidden="true" />
 				<h2>Lead Qualification</h2>
 				<p>
 					Increase the quality of your leads, and allow your team to focus on
@@ -18,7 +20,7 @@
 				<div class="[ mt-2 ]">
 					<Button
 						as="a"
-            href="#contact-form"
+						href="#contact-form"
 						look="primary"
 						class="[ flex gap-2 ]">
 						<span class="[ uppercase ]">Book a demo</span>
@@ -34,16 +36,19 @@
 					<NuxtImg
 						src="/images/home/dashboard.png"
 						alt="dashboard"
-						sizes="md:400px lg:620px"
-						:placeholder="[620]" />
+						format="webp"
+						sizes="sm:280px md:400px lg:620px"
+						:placeholder="[280]"
+						loading="lazy" />
 				</div>
 
 				<div class="[ absolute -bottom-12 lg:-bottom-20 right-0 lg:-right-12 ]">
 					<NuxtImg
 						src="/images/home/phone-uber-message.png"
-						alt="uber message"
+						alt="uber sms message"
+						format="webp"
 						sizes="sm:120px lg:200px"
-						:placeholder="[200]"
+						:placeholder="[120]"
 						loading="lazy" />
 				</div>
 			</div>

@@ -19,6 +19,7 @@
 				<NuxtImg
 					src="/images/home/phone-app-2.jpeg"
 					alt="phone app"
+					format="webp"
 					sizes="400px md:400px lg:680px"
 					:placeholder="[400]"
 					class="[ mix-blend-screen opacity-60 ]">
@@ -41,6 +42,7 @@
 						<NuxtImg
 							src="/images/home/popup-menu.png"
 							alt="popup menu"
+							format="webp"
 							sizes="120px md:128px lg:160px"
 							:placeholder="[120]">
 						</NuxtImg>
@@ -52,7 +54,7 @@
 		<div
 			class="[ -mt-10 py-6 ] [ flex flex-col items-center justify-end gap-8 ] [ text-center ]">
 			<div>
-				<h1 class="[ text-white ] [ max-w-screen-md lg:max-w-screen-lg ]">
+				<h1 class="[ text-white ] [ lg:max-w-screen-lg ]">
 					Curiosity to
 					<span
 						class="heading-decor"
@@ -95,7 +97,7 @@
 			#9553fb 101.94%
 		);
 		background-blend-mode: overlay;
-		@apply min-h-[80vh] md:min-h-[65vh] lg:min-h-[40vh];
+		@apply min-h-[40vh];
 	}
 
 	.heading-decor {
@@ -103,7 +105,7 @@
 	}
 
 	.decorative-group {
-		@apply flex items-start gap-4 md:gap-10;
+		@apply hidden lg:flex items-start gap-4 md:gap-10;
 	}
 
 	.contacts-decorative {

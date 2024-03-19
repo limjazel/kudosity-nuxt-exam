@@ -1,6 +1,6 @@
 <script setup>
 	const LookOptions = {
-		line: "input--line [ text-white placeholder:text-white/60 ] [ border-b border-white bg-transparent ]",
+		line: "input--line [ text-white placeholder:text-white/70 ] [ border-b border-white bg-transparent ]",
 		custom: "input--custom-look",
 	}
 

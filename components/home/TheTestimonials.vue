@@ -173,7 +173,7 @@
 								class="[ pt-3 ]"></div>
 
 							<div
-								class="[ mt-12 ] [ flex gap-8 ] [ text-sm text-neutral-400 ]">
+								class="[ mt-12 ] [ flex gap-8 ] [ text-sm text-neutral-500 ]">
 								<span>{{ tweet.time }}</span>
 								<span>{{ tweet.date }}</span>
 							</div>

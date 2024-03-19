@@ -61,7 +61,8 @@
 <template>
 	<section
 		id="contact-form"
-		class="contact-form [ py-20 ] [ bg-primary ]">
+		class="contact-form [ py-20 ] [ bg-primary ] [ relative ]">
+		<div class="absolute inset-0 bg-stroke/10 pointer-events-none"></div>
 		<div class="[ px-6 mx-auto ] [ container max-w-screen-xl ]">
 			<div class="[ flex flex-wrap lg:flex-nowrap gap-16 md:gap-12 ]">
 				<div
