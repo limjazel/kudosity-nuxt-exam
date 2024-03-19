@@ -56,8 +56,7 @@
 			<Component
 				v-for="logo in logos"
 				:is="logo.component"
-				:alt="logo.name"
-				aria-hidden="true"
+				:aria-label="logo.name"
 				class="[ h-8 lg:h-10 w-auto fill-current text-neutral-400 ]">
 			</Component>
 		</div>
