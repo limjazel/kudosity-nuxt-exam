@@ -1,30 +1,29 @@
-<script setup lang="ts">
-	const homepage = {
-		title: "Kudosity — Grow customer relationships with messaging experiences",
-		description:
-			"Scale conversations with Kudosity's 20+ years of messaging innovation. Explore global connectivity, SaaS platforms, and AI- driven conversational automation.",
-		image: "https://kudosity.co/img/kudosity-social.jpg",
-	}
+<script setup>
+	const title =
+		"Kudosity — Grow customer relationships with messaging experiences"
+	const description =
+		"Scale conversations with Kudosity's 20+ years of messaging innovation. Explore global connectivity, SaaS platforms, and AI- driven conversational automation."
+	const previewImage = "https://kudosity.co/img/kudosity-social.jpg"
 
 	useHead({
-		title: homepage.title,
+		title: title,
 		meta: [
 			{
 				name: "description",
-				content: homepage.description,
+				content: description,
 			},
 		],
 	})
 
 	useSeoMeta({
-		title: homepage.title,
-		ogTitle: homepage.title,
-		description: homepage.description,
-		ogDescription: homepage.description,
-		ogImage: homepage.image,
-		twitterTitle: homepage.title,
-		twitterDescription: homepage.description,
-		twitterImage: homepage.image,
+		title: title,
+		ogTitle: title,
+		description: description,
+		ogDescription: description,
+		ogImage: previewImage,
+		twitterTitle: title,
+		twitterDescription: description,
+		twitterImage: previewImage,
 		twitterCard: "summary_large_image",
 	})
 </script>
