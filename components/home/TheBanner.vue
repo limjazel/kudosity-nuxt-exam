@@ -21,7 +21,7 @@
 					alt="phone app dashboard"
 					format="webp"
 					width="400px"
-					height="360px"
+					height="374px"
 					class="[ mix-blend-screen opacity-60 ]">
 				</NuxtImg>
 			</div>
