@@ -20,7 +20,8 @@
 					src="/images/home/phone-app-2.jpeg"
 					alt="phone app"
 					format="webp"
-					sizes="400px"
+					width="400px"
+					height="360px"
 					class="[ mix-blend-screen opacity-60 ]">
 				</NuxtImg>
 			</div>
@@ -42,7 +43,7 @@
 							src="/images/home/popup-menu.png"
 							alt="popup menu"
 							format="webp"
-							sizes="160px">
+							width="140px">
 						</NuxtImg>
 					</div>
 				</div>
