@@ -3,14 +3,7 @@
 		title: "Kudosity — Grow customer relationships with messaging experiences",
 		description:
 			"Scale conversations with Kudosity's 20+ years of messaging innovation. Explore global connectivity, SaaS platforms, and AI- driven conversational automation.",
-		lang: "en-US",
-		charset: "utf-8",
-		viewport: "width=device-width,initial-scale=1.0",
-		ogTitle:
-			"Kudosity — Grow customer relationships with messaging experiences",
-		ogDescription:
-			"Scale conversations with Kudosity's 20+ years of messaging innovation. Explore global connectivity, SaaS platforms, and AI- driven conversational automation.",
-		ogImage: "https://kudosity.co/img/kudosity-social.jpg",
+		image: "https://kudosity.co/img/kudosity-social.jpg",
 	}
 
 	useHead({
@@ -20,21 +13,18 @@
 				name: "description",
 				content: homepage.description,
 			},
-			{
-				charset: homepage.charSet,
-			},
 		],
 	})
 
 	useSeoMeta({
 		title: homepage.title,
-		ogTitle: homepage.ogTitle,
+		ogTitle: homepage.title,
 		description: homepage.description,
-		ogDescription: homepage.ogDescription,
-		ogImage: homepage.ogImage,
-		twitterTitle: homepage.ogTitle,
-		twitterDescription: homepage.ogDescription,
-		twitterImage: homepage.ogImage,
+		ogDescription: homepage.description,
+		ogImage: homepage.image,
+		twitterTitle: homepage.title,
+		twitterDescription: homepage.description,
+		twitterImage: homepage.image,
 		twitterCard: "summary_large_image",
 	})
 </script>
