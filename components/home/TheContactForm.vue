@@ -3,7 +3,7 @@
 	import { getFirestore } from "firebase/firestore"
 	import { addDoc } from "firebase/firestore"
 	import { useVuelidate } from "@vuelidate/core"
-	import { contactFormRequiredFields } from "@/helpers/home/use-contact-form-rules"
+	import { contactFormRequiredFields } from "@/utils/home/use-contact-form-rules"
 	import { useEmailValidation } from "@/utils/home/use-email-validation"
 	import { ArrowRightIcon } from "@heroicons/vue/16/solid"
 	import { useFirebase } from "@/firebase/stores/use-firebase"
