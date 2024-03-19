@@ -20,8 +20,8 @@
 					src="/images/home/phone-app-2.jpeg"
 					alt="phone app"
 					sizes="400px md:400px lg:680px"
-					:placeholder="[680]"
-					class="[ mix-blend-screen opacity-60 ] [ w-full h-auto ]">
+					:placeholder="[400]"
+					class="[ mix-blend-screen opacity-60 ]">
 				</NuxtImg>
 			</div>
 
@@ -42,7 +42,7 @@
 							src="/images/home/popup-menu.png"
 							alt="popup menu"
 							sizes="120px md:128px lg:160px"
-							:placeholder="[160]">
+							:placeholder="[120]">
 						</NuxtImg>
 					</div>
 				</div>
